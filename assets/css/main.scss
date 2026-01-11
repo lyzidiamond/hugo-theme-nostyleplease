@@ -92,9 +92,9 @@
 
 body[a="dark"] { @include dark-appearance; }
 body[a="light"] { @include light-appearance; }
-body[a="dark"] #theme-toggle::after { content: "🌙"; }
-body[a="light"] #theme-toggle::after { content: "☀️"; }
-body[a="auto"] #theme-toggle::after { content: "🌓"; }
+body[a="dark"] #theme-toggle::after { content: "☼"; }
+body[a="light"] #theme-toggle::after { content: "☾"; }
+body[a="auto"] #theme-toggle::after { content: "𓇷"; }
 
 @media (prefers-color-scheme: dark) {
   body[a="auto"] { @include dark-appearance; }
@@ -220,4 +220,5 @@ details[open] summary {
   color: inherit;
   padding: 0.4rem 0.6rem;
   cursor: pointer;
+  font-size: 1.3rem;
 }
