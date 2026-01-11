@@ -1,12 +1,12 @@
 // -------------- THEME SWITCHER -------------- //
-@mixin theme($--bg-color, $--primary-text-color, $--secondary-text-color, $--link-color, $--visited-link-color, $--highlight) {
+@mixin theme($--bg-color, $--primary-text-color, $--secondary-text-color, $--link-color, $--highlight) {
   background-color: $--bg-color;
 
   color: $--primary-text-color;
 
   a {
     color: $--link-color;
-    &:visited { color: $--visited-link-color; }
+    // &:visited { color: $--visited-link-color; }
   }
 
   details {
@@ -52,15 +52,49 @@
 }
 
 @mixin dark-appearance {
-  @include theme(#000000, #ffffff, #000000, #79a8ff, #f78fe7, #2f3849); // modus-vivendi
+  @include theme(#002b36, #eee8d5, #839496, #859900, #073642); // modus-vivendi
 }
 
 @mixin light-appearance {
-  @include theme(#ffffff, #000000, #595959, #3548cf, #8f0075, #dae5ec); // modus-operandi
+  @include theme(#fdf6e3, #657b83, #586e75, #d33682, #eee8d5); // modus-operandi
 }
+
+// $base03 =  #002b36
+// $base02 =  #073642
+// $base01 =  #586e75
+// $base00 =  #657b83
+// $base0 =   #839496
+// $base1 =   #93a1a1
+// $base2 =   #eee8d5
+// $base3 =   #fdf6e3
+
+// $yellow =  #b58900 
+// $orange =  #cb4b16 
+// $red =     #dc322f 
+// $magenta = #d33682 
+// $violet =  #6c71c4 
+// $blue =    #268bd2 
+// $cyan =    #2aa198 
+// $green =   #859900 
+
+// if $solarized is dark
+//   $fg =      $base0
+//   $bg =      $base03
+//   $hl =      $base02
+//   $emph =    $base1
+//   $comment = $base01
+// else
+//   $fg =      $base00
+//   $bg =      $base3
+//   $hl =      $base2
+//   $emph =    $base01
+//   $comment = $base1
 
 body[a="dark"] { @include dark-appearance; }
 body[a="light"] { @include light-appearance; }
+body[a="dark"] #theme-toggle::after { content: "🌙"; }
+body[a="light"] #theme-toggle::after { content: "☀️"; }
+body[a="auto"] #theme-toggle::after { content: "🌓"; }
 
 @media (prefers-color-scheme: dark) {
   body[a="auto"] { @include dark-appearance; }
@@ -76,7 +110,7 @@ html { height: 100%; }
 
 body {
   font-family: monospace;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.4;
   margin: 0;
   min-height: 100%;
@@ -178,4 +212,12 @@ details[open] summary {
 
 .toc {
   padding: 1rem;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
 }
