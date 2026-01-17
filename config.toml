@@ -35,5 +35,8 @@
     appearance        = "auto"
     back_home_text    = "[back]"
     date_format       = "2006-01-02"
-    isListGroupByDate = false
+    isListGroupByDate = true
     isShowFooter      = true
+
+[frontmatter]
+  date = [':filename', ':default']

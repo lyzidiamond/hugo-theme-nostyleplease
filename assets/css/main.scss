@@ -1,5 +1,5 @@
 // -------------- THEME SWITCHER -------------- //
-@mixin theme($--bg-color, $--primary-text-color, $--secondary-text-color, $--strong-color, $--link-color, $--highlight, $--header-color) {
+@mixin theme($--bg-color, $--primary-text-color, $--secondary-text-color, $--strong-color, $--link-color, $--highlight, $--header-color, $--emphasis-color) {
   background-color: $--bg-color;
 
   color: $--primary-text-color;
@@ -29,8 +29,18 @@
     color: $--strong-color;
   }
 
+  em, i {
+    color: $--emphasis-color;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     color: $--header-color;
+  }
+
+  time {
+    color: $--header-color;
+    font-weight: bold;
+    font-size: 1.2em;
   }
 
   code:not(pre > code) {
@@ -60,11 +70,11 @@
 }
 
 @mixin dark-appearance {
-  @include theme($base03, $base0, $base1, $magenta, $cyan, $base02, $blue); // modus-vivendi
+  @include theme($base03, $base0, $base1, $magenta, $cyan, $base02, $blue, $orange); // modus-vivendi
 }
 
 @mixin light-appearance {
-  @include theme($base3, $base00, $base1, $magenta, $green, $base2, $blue); // modus-operandi
+  @include theme($base3, $base00, $base1, $magenta, $green, $base2, $blue, $orange); // modus-operandi
 }
 
 $base03: #002b36;

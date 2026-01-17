@@ -1,16 +1,22 @@
 {{ define "main" }}
 
-<h1>Posts</h1>
+<h1>blog</h1>
 
 {{ .Content }}
 
+<h3>blog posts</h3>
+
+<ul><li><a href="index.xml">rss feed</a></li></ul>
+
 <!-- divide post list by year  -->
 {{ if  .Site.Params.theme_config.isListGroupByDate  }}
-    {{ range .Pages.GroupByDate "2006 Year" }}
+    {{ range .Pages.GroupByDate "2006" }}
     <p>{{ .Key }}</p>
     <ul>
         {{ range .Pages }}
-            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+            <li>
+                <span>{{ .Date | time.Format site.Params.theme_config.date_format }}</span>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
         {{ end }}
     </ul>
     {{ end }}
